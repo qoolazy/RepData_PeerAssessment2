@@ -9,7 +9,7 @@ The goal of this report is to analyze the impacts of severe weather events on pu
 
 ```r
 echo = TRUE  # Make code visible so that someone else will be able to read them
-options(scipen = 3)  # Turn off scientific notations for numbers
+options(scipen = 1)  # Turn off scientific notations for numbers
 library(R.utils)
 ```
 
@@ -124,7 +124,7 @@ dim(storm)
 ```
 Now, there are 681500 rows and 38 columns in total.
 
-### Impact on Public Health
+### Analysis on Public Health Impacts
 In this section, we check the number of **fatalities** and **injuries** that are caused by the severe weather events. We would like to get the first 15 most severe types of weather events.
 
 ```r
@@ -142,7 +142,7 @@ fatalities <- sortHelper("FATALITIES", dataset = storm)
 injuries <- sortHelper("INJURIES", dataset = storm)
 ```
 
-### Impact on Economy
+### Analysis on Economy Impacts
 We will convert the **property damage** and **crop damage** data into comparable numerical forms according to the meaning of units described in the code book ([Storm Events](http://ire.org/nicar/database-library/databases/storm-events/)). Both `PROPDMGEXP` and `CROPDMGEXP` columns record a multiplier for each observation where we have Hundred (H), Thousand (K), Million (M) and Billion (B).
 
 

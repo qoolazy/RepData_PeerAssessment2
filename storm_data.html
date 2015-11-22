@@ -75,7 +75,7 @@ img {
 <div id="settings-global-options" class="section level3">
 <h3>Settings Global Options</h3>
 <pre class="r"><code>echo = TRUE  # Make code visible so that someone else will be able to read them
-options(scipen = 3)  # Turn off scientific notations for numbers
+options(scipen = 1)  # Turn off scientific notations for numbers
 library(R.utils)</code></pre>
 <pre><code>## Loading required package: R.oo
 ## Loading required package: R.methodsS3
@@ -152,8 +152,8 @@ dim(storm)</code></pre>
 <pre><code>## [1] 681500     38</code></pre>
 <p>Now, there are 681500 rows and 38 columns in total.</p>
 </div>
-<div id="impact-on-public-health" class="section level3">
-<h3>Impact on Public Health</h3>
+<div id="analysis-on-public-health-impacts" class="section level3">
+<h3>Analysis on Public Health Impacts</h3>
 <p>In this section, we check the number of <strong>fatalities</strong> and <strong>injuries</strong> that are caused by the severe weather events. We would like to get the first 15 most severe types of weather events.</p>
 <pre class="r"><code>sortHelper &lt;- function(fieldName, top = 15, dataset = stormData) {
     index &lt;- which(colnames(dataset) == fieldName)
@@ -168,8 +168,8 @@ dim(storm)</code></pre>
 fatalities &lt;- sortHelper(&quot;FATALITIES&quot;, dataset = storm)
 injuries &lt;- sortHelper(&quot;INJURIES&quot;, dataset = storm)</code></pre>
 </div>
-<div id="impact-on-economy" class="section level3">
-<h3>Impact on Economy</h3>
+<div id="analysis-on-economy-impacts" class="section level3">
+<h3>Analysis on Economy Impacts</h3>
 <p>We will convert the <strong>property damage</strong> and <strong>crop damage</strong> data into comparable numerical forms according to the meaning of units described in the code book (<a href="http://ire.org/nicar/database-library/databases/storm-events/">Storm Events</a>). Both <code>PROPDMGEXP</code> and <code>CROPDMGEXP</code> columns record a multiplier for each observation where we have Hundred (H), Thousand (K), Million (M) and Billion (B).</p>
 <pre class="r"><code>convertHelper &lt;- function(dataset = storm, fieldName, newFieldName) {
     totalLen &lt;- dim(dataset)[2]
