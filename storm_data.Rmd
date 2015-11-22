@@ -36,6 +36,8 @@ dim(stormData)
 head(stormData, n = 3)
 ```
 There are 902297 rows and 37 columns in total.
+
+####  ***Justification for Data Transformations***
 The events in the database start in the year 1950 and end in November 2011. In the earlier years of the database there are generally fewer events recorded, most likely due to a lack of good records. More recent years should be considered more complete.
 
 ```{r}
@@ -52,7 +54,7 @@ dim(storm)
 ```
 Now, there are 681500 rows and 38 columns in total.
 
-### Analysis on Public Health Impacts
+### Exploring Public Health Impacts
 In this section, we check the number of **fatalities** and **injuries** that are caused by the severe weather events. We would like to get the first 15 most severe types of weather events.
 ```{r}
 sortHelper <- function(fieldName, top = 15, dataset = stormData) {
@@ -69,7 +71,7 @@ fatalities <- sortHelper("FATALITIES", dataset = storm)
 injuries <- sortHelper("INJURIES", dataset = storm)
 ```
 
-### Analysis on Economy Impacts
+### Exploring Economy Impacts
 We will convert the **property damage** and **crop damage** data into comparable numerical forms according to the meaning of units described in the code book ([Storm Events](http://ire.org/nicar/database-library/databases/storm-events/)). Both `PROPDMGEXP` and `CROPDMGEXP` columns record a multiplier for each observation where we have Hundred (H), Thousand (K), Million (M) and Billion (B).
 
 ```{r}
