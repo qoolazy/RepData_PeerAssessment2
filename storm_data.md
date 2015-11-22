@@ -62,7 +62,7 @@ download.file("http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.c
 bunzip2("repdata-data-StormData.csv.bz2", overwrite=T, remove=F)
 ```
 
-Then, we read the generated csv file. If the data already exists in the working environment, we do not need to load it again. Otherwise, we read the csv file.
+Then, we read the generated csv file. 
 
 ```r
 stormData <- read.csv("repdata-data-StormData.csv", sep = ",")
